@@ -1,9 +1,10 @@
-package feat
+package hangman
 
 import (
 	"log"
 	"os"
 )
+
 
 func FileJose() [10]string {
 	pos := [10]string{}
