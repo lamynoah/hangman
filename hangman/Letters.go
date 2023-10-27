@@ -17,11 +17,15 @@ func Revealletters(HMD *HangManData, l string) bool {
 	return found
 }
 
-func ChoosseLetters(HMD *HangManData) {
+func ChoosseLetters(HMD *HangManData, isAscii bool) {
 	var l string
 	fmt.Println("Good luck you have 10 attemps.")
 	for HMD.Attempts > 0 && countnbr(HMD.Word) > 0 {
-		fmt.Printf("%c\n", HMD.Word)
+		if isAscii {
+			DisplayWordAscii(HMD)
+		} else {
+			fmt.Printf("%c\n", HMD.Word)
+		}
 		fmt.Print("Choose : ")
 		fmt.Scan(&l)
 		found := Revealletters(HMD, l)
@@ -32,13 +36,15 @@ func ChoosseLetters(HMD *HangManData) {
 				found = true
 			}
 		}
-		if !found {
+		if !found && l != HMD.ToFind {
 			HMD.Attempts--
 			HMD.Letterstock = append(HMD.Letterstock, l)
 			if strings.Count(l, "") > 2 {
 				HMD.Attempts--
 			}
 			fmt.Println("Not present in the word,", HMD.Attempts, "attempts remaining")
+		} else if l == HMD.ToFind {
+			HMD.Word = []rune(HMD.ToFind)
 		} else {
 			found = false
 		}

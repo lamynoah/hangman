@@ -5,7 +5,6 @@ import (
 	"os"
 )
 
-
 func FileJose() [10]string {
 	pos := [10]string{}
 	content, err := os.ReadFile("hangman.txt")

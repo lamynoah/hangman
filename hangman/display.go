@@ -2,7 +2,7 @@ package hangman
 
 import "fmt"
 
-func DisplayLosseWin(HMD *HangManData) {
+func DisplayLosseWin(HMD *HangManData, isAscii bool) {
 	if HMD.Attempts == 0 && countnbr(HMD.Word) > 0 {
 		fmt.Println("---------------------------------------")
 		fmt.Println(" 		VOUS AVEZ PERDU 	")
@@ -10,7 +10,11 @@ func DisplayLosseWin(HMD *HangManData) {
 	}
 	// display victory
 	if HMD.Attempts > 0 && countnbr(HMD.Word) == 0 {
-		fmt.Printf("%c\n", HMD.Word)
+		if isAscii {
+			DisplayWordAscii(HMD)
+		} else {
+			fmt.Printf("%c\n", HMD.Word)
+		}
 		fmt.Println("Congrats !")
 	}
 
