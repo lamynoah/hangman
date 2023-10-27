@@ -20,9 +20,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if len(os.Args) > 2  && os.Args[2] == "--letterFile" {
+	if len(os.Args) == 4 && os.Args[2] == "--letterFile" {
 		isAscii = true
-	} 
+	} else if len(os.Args) >= 5 || os.Args[2] == "--letterFile" && len(os.Args) < 4 {
+		log.Fatal(err)
+	}
 	// words found  random
 	hangman.RandomWord(content, &HMD)
 	// letter display random
@@ -32,5 +34,4 @@ func main() {
 	// reveal letters or word
 	// display loose
 	hangman.DisplayLosseWin(&HMD, isAscii)
-
 }
