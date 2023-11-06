@@ -30,13 +30,16 @@ func ChoosseLetters(HMD *HangManData, isAscii bool) {
 		fmt.Scan(&l)
 		found := Revealletters(HMD, l)
 		Foundsword(HMD, l)
+		if l == "STOP" {
+			Save(HMD)
+		}
 		for _, i := range HMD.Letterstock {
 			if i == l {
 				fmt.Printf("You said this letter earlier")
 				found = true
 			}
 		}
-		if !found && l != HMD.ToFind {
+		if !found && l != HMD.ToFind{
 			HMD.Attempts--
 			HMD.Letterstock = append(HMD.Letterstock, l)
 			if strings.Count(l, "") > 2 {

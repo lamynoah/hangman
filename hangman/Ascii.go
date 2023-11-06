@@ -7,7 +7,6 @@ import (
 )
 
 func ASCIIART(HMD *HangManData) []string {
-	// p := []string{}
 	f, err := os.Open(os.Args[3])
 
 	if err != nil {
@@ -35,17 +34,6 @@ func ASCIIART(HMD *HangManData) []string {
 		lignes = append(lignes, ligne)
 	}
 	return lignes
-	// debut, fin := 0, 9
-	// for i := 0; i < 100; i++ {
-	// 	letter := ""
-	// 	for _, v := range content[debut:fin] {
-	// 		letter += v + "\n"
-	// 	}
-	// 	p = append(p, letter)
-	// 	debut += 9
-	// 	fin += 9
-	// }
-	// return p
 }
 func DisplayWordAscii(HMD *HangManData) {
 	ligne_array := ASCIIART(HMD)
