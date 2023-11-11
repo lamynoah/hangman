@@ -14,11 +14,3 @@ func RandomWord(content []byte, HMD *HangManData) {
 		HMD.Word = append(HMD.Word, '_')
 	}
 }
-
-func Foundsword(HMD *HangManData, l string) bool {
-	if l == HMD.ToFind {
-		HMD.Word = []rune(HMD.ToFind)
-		return true
-	}
-	return false
-}

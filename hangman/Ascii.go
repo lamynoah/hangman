@@ -7,8 +7,7 @@ import (
 )
 
 func ASCIIART(HMD *HangManData) []string {
-	f, err := os.Open(os.Args[3])
-
+	f, err := os.Open(HMD.AsciiFile)
 	if err != nil {
 		log.Fatal(err)
 	}
