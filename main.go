@@ -14,6 +14,7 @@ func main() {
 		Foundword:        false,
 		IsAscii:          false,
 	}
+	//repository
 	var filepath string
 	if len(os.Args) == 4 && os.Args[2] == "--letterFile" {
 		HMD.IsAscii = true
