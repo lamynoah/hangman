@@ -21,18 +21,12 @@ func ChooseLetters(HMD *HangManData) {
 	var l string
 	fmt.Println("Good luck you have", HMD.Attempts, "attemps")
 	for HMD.Attempts > 0 && countnbr(HMD.Word) > 0 {
-		if HMD.IsAscii {
-			DisplayWordAscii(HMD)
-		} else {
-			fmt.Printf("%c\n", HMD.Word)
-		}
 		fmt.Print("Choose : ")
 		fmt.Scan(&l)
 		if l == "STOP" {
 			Save(HMD)
 		}
 
-		
 		if strings.Count(l, "") > 2 {
 			if l != HMD.ToFind {
 				HMD.Attempts -= 2
@@ -42,16 +36,15 @@ func ChooseLetters(HMD *HangManData) {
 			}
 		} else {
 			found := Revealletters(HMD, l)
-			if !found && !UsedLetter(HMD,l) {
+			if !found && !UsedLetter(HMD, l) {
 				HMD.Letterstock = append(HMD.Letterstock, l)
 				HMD.Attempts -= 1
 				fmt.Println("Not present in the word,", HMD.Attempts, "attempts remaining")
-			} else if UsedLetter(HMD,l) {
+			} else if UsedLetter(HMD, l) {
 				fmt.Printf("You said this letter earlier")
 			}
 		}
 
-		
 		if HMD.Attempts < 10 {
 			fmt.Printf(HMD.HangmanPositions[9-HMD.Attempts])
 		}

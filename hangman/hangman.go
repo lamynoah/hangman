@@ -7,6 +7,5 @@ type HangManData struct {
 	HangmanPositions [10]string // It can be the array where the positions parsed in "hangman.txt" are stored
 	Letterstock      []string   // stock the letter used
 	Foundword        bool
-	IsAscii          bool
 	AsciiFile 		 string 
 }

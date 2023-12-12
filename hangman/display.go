@@ -10,11 +10,7 @@ func DisplayLosseWin(HMD *HangManData) {
 	}
 	// display victory
 	if HMD.Attempts > 0 && countnbr(HMD.Word) == 0 {
-		if HMD.IsAscii {
-			DisplayWordAscii(HMD)
-		} else {
-			fmt.Printf("%c\n", HMD.Word)
-		}
+		fmt.Printf("%c\n", HMD.Word)
 		fmt.Println("Congrats !")
 	}
 
