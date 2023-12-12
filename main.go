@@ -1,9 +1,10 @@
 package main
 
 import (
-	"feat/hangman"
 	"log"
 	"os"
+
+	"github.com/lamynoah/hangman/hangman"
 )
 
 func main() {
