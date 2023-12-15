@@ -17,12 +17,13 @@ func Revealletters(HMD *HangManData, l string) bool {
 	return found
 }
 
-
-
-func AppendLetterStock ( HMD * HangManData, l string) {
+func AppendLetterStock(HMD *HangManData, l string) {
 	for HMD.Attempts > 0 && countnbr(HMD.Word) > 0 {
-		HMD.Letterstock = append(HMD.Letterstock, l)
-	}		
+		found := Revealletters(HMD, l)
+		if !found && !UsedLetter(HMD, l) {
+			HMD.Letterstock = append(HMD.Letterstock, l)
+		}
+	}
 }
 
 func ChooseLetters(HMD *HangManData) {
