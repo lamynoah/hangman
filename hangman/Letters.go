@@ -17,6 +17,14 @@ func Revealletters(HMD *HangManData, l string) bool {
 	return found
 }
 
+
+
+func AppendLetterStock ( HMD * HangManData, l string) {
+	for HMD.Attempts > 0 && countnbr(HMD.Word) > 0 {
+		HMD.Letterstock = append(HMD.Letterstock, l)
+	}		
+}
+
 func ChooseLetters(HMD *HangManData) {
 	var l string
 	fmt.Println("Good luck you have", HMD.Attempts, "attemps")

@@ -5,6 +5,9 @@ import (
 	"strings"
 )
 
+
+
+// choisis le modts aléatoire 
 func RandomWord(content []byte, HMD *HangManData) {
 	words := strings.Fields(string(content))
 	randomIndex := rand.Intn(len(words))
