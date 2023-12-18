@@ -17,6 +17,26 @@ func Revealletters(HMD *HangManData, l string) bool {
 	return found
 }
 
+func RevealWord(HMD *HangManData, l string) {
+	if strings.Count(l, "") > 2 {
+		if l != HMD.ToFind {
+			HMD.Attempts -= 2
+			fmt.Println("Wrong word,", HMD.Attempts, "attempts remaining")
+		} else {
+			HMD.Word = []rune(HMD.ToFind)
+		}
+	} else {
+		found := Revealletters(HMD, l)
+		if !found && !UsedLetter(HMD, l) {
+			HMD.Letterstock = append(HMD.Letterstock, l)
+			HMD.Attempts -= 1
+			fmt.Println("Not present in the word,", HMD.Attempts, "attempts remaining")
+		} else if UsedLetter(HMD, l) {
+			fmt.Printf("You said this letter earlier")
+		}
+	}
+}
+
 func AppendLetterStock(HMD *HangManData, l string) {
 	for HMD.Attempts > 0 && countnbr(HMD.Word) > 0 {
 		found := Revealletters(HMD, l)
