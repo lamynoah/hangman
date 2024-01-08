@@ -33,7 +33,7 @@ func main() {
 		hangman.DisplayRandomLetter(&HMD)
 	}
 	// display
-	hangman.ChooseLetters(&HMD)
+
 	// reveal letters or word
 	// display loose
 	hangman.DisplayLosseWin(&HMD)
