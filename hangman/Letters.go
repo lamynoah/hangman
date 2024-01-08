@@ -9,6 +9,7 @@ import (
 func Revealletters(HMD *HangManData, l string) bool {
 	found := false
 	if l == HMD.ToFind {
+		HMD.Word = []rune(l)
 		return true
 	}
 	for i := 0; i < len(HMD.ToFind); i++ {
